@@ -12,7 +12,9 @@ window.addEventListener('load', function () {
             this.height = height;
             this.player = new Player(this);
         }
-        update() {}
+        update() {
+            this.player.update();
+        }
 
         draw(context) {
             this.player.draw(context);
@@ -22,6 +24,8 @@ window.addEventListener('load', function () {
     const game = new Game(canvas.width, canvas.height);
 
     function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        game.update();
         game.draw(ctx);
         requestAnimationFrame(animate);
     }
