@@ -19,6 +19,7 @@ export class Player {
         this.currentState.enter();
     }
     update(input) {
+        this.currentState.handleInput(input);
         // horizontal movement
         this.x += this.speed;
         if (input.includes('ArrowRight')) this.speed = this.maxSpeed;
@@ -27,7 +28,7 @@ export class Player {
         if (this.x < 0) this.x = 0;
         if (this.x > this.game.width - this.width) this.x = this.game.width - this.width;
         // vertical movement
-        if (input.includes('ArrowUp') && this.onGround()) this.vy -= 20;
+        if (input.includes('ArrowUp') && this.onGround()) this.vy -= 30;
         this.y += this.vy;
         if (!this.onGround()) this.vy += this.weight;
         else this.vy = 0;
@@ -37,5 +38,9 @@ export class Player {
     }
     onGround() {
         return this.y >= this.game.height - this.height;
+    }
+    setState(state) {
+        this.currentState = this.states[state];
+        this.currentState.enter();
     }
 }
