@@ -6,22 +6,22 @@ class Enemy {
         this.frameInterval = 1000 / this.fps;
         this.frameTimer = 0;
     }
-    update() {
-
-    }
-    draw() {
-
-    }
+    update() {}
+    draw() {}
 }
 
 class FlyingEnemy extends Enemy {
-
+    constructor(game) {
+        super();
+        this.game = game;
+        this.width = 60;
+        this.height = 44;
+        this.x = 200;
+        this.y = 2;
+        this.maxFrame = 5;
+    }
 }
 
-class GroundEnemy extends Enemy {
+class GroundEnemy extends Enemy {}
 
-}
-
-class ClimbingEnemy extends Enemy {
-    
-}
+class ClimbingEnemy extends Enemy {}
