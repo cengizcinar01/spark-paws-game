@@ -6,7 +6,18 @@ class Enemy {
         this.frameInterval = 1000 / this.fps;
         this.frameTimer = 0;
     }
-    update() {}
+    update() {
+        // movement
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.frameTimer > this.frameInterval) {
+            this.frameTimer = 0;
+            if (this.frameX < this.maxFrame) this.frameX++;
+            else this.frameX = 0;
+        } else {
+            this.frameTimer += deltaTime;
+        }
+    }
     draw() {}
 }
 
