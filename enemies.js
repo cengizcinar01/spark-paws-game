@@ -18,7 +18,9 @@ class Enemy {
             this.frameTimer += deltaTime;
         }
     }
-    draw() {}
+    draw(context) {
+        context.drawImage(this.image, this.frameX * this.width, 0, this.width, this.height, this.x, this.y, this.width, this.height);
+    }
 }
 
 class FlyingEnemy extends Enemy {
@@ -30,6 +32,10 @@ class FlyingEnemy extends Enemy {
         this.x = 200;
         this.y = 2;
         this.maxFrame = 5;
+        this.image = document.getElementById('enemy_fly');
+    }
+    update(deltaTime) {
+        super.update(deltaTime);
     }
 }
 
