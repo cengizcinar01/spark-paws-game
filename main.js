@@ -33,11 +33,17 @@ window.addEventListener('load', function () {
             } else {
                 this.enemyTimer += deltaTime;
             }
+            this.enemies.forEach((enemy) => {
+                enemy.update(deltaTime);
+            });
         }
 
         draw(context) {
             this.background.draw(context);
             this.player.draw(context);
+            this.enemies.forEach((enemy) => {
+                enemy.draw(context);
+            });
         }
         addEnemy() {
             this.enemies.push(new FlyingEnemy(this));
