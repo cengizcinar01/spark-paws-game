@@ -10,6 +10,18 @@ class Enemy {
 
     }
     draw() {
-        
+
     }
+}
+
+class FlyingEnemy extends Enemy {
+
+}
+
+class GroundEnemy extends Enemy {
+
+}
+
+class ClimbingEnemy extends Enemy {
+    
 }
