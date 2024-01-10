@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
             // handle particles
             this.particles.forEach((particle, index) => {
                 particle.update();
-                if (particle.markedForDeletion) this.particles.splice(index);
+                if (particle.markedForDeletion) this.particles.splice(index, 1);
             });
         }
 
@@ -57,6 +57,9 @@ window.addEventListener('load', function () {
             this.player.draw(context);
             this.enemies.forEach((enemy) => {
                 enemy.draw(context);
+            });
+            this.particles.forEach((particle) => {
+                particle.draw(context);
             });
             this.UI.draw(context);
         }
