@@ -10,3 +10,16 @@ class Particle {
         if (this.size < 0.5) this.markedForDeletion = true;
     }
 }
+
+export class Dust extends Particle {
+    
+}
+
+export class Splash extends Particle {
+    
+}
+
+export class Fire extends Particle {
+    
+}
+
