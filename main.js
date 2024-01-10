@@ -50,6 +50,7 @@ window.addEventListener('load', function () {
                 particle.update();
                 if (particle.markedForDeletion) this.particles.splice(index, 1);
             });
+            console.log(this.particles);
         }
 
         draw(context) {
