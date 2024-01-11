@@ -1,4 +1,4 @@
-import { Sitting, Running, Jumping, Falling, Rolling } from './playerStates.js';
+import { Sitting, Running, Jumping, Falling, Rolling, Diving } from './playerStates.js';
 
 export class Player {
     constructor(game) {
@@ -18,7 +18,7 @@ export class Player {
         this.frameTimer = 0;
         this.speed = 0;
         this.maxSpeed = 10;
-        this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game)];
+        this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game), new Diving(this.game)];
     }
     update(input, deltaTime) {
         this.checkCollision();
