@@ -46,6 +46,7 @@ export class Fire extends Particle {
     update() {
         super.update();
         this.angle += this.va;
+        this.x += Math.sin(this.angle * 5);
     }
     draw(context) {
         context.save();
