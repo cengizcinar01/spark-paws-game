@@ -16,4 +16,7 @@ class collisionAnimation {
     draw(context) {
         context.drawImage(this.image, this.frameX * this.spriteWidth, 0, this.spriteHeight, this.x, this.y, this.width, this.height);
     }
+    update() {
+        this.x -= this.game.speed;
+    }
 }
