@@ -13,4 +13,7 @@ class collisionAnimation {
         this.maxFrame = 4;
         this.markedForDeletion = false;
     }
+    draw(context) {
+        context.drawImage(this.image, this.frameX * this.spriteWidth, 0, this.spriteHeight, this.x, this.y, this.width, this.height);
+    }
 }
