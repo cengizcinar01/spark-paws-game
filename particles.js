@@ -45,6 +45,9 @@ export class Splash extends Particle {
         this.gravity += 0.1;
         this.y += this.gravity;
     }
+    draw() {
+        context.drawImage(this.image, this.x, this.y, this.size, this.size);
+    }
 }
 
 export class Fire extends Particle {
