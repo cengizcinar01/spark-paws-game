@@ -18,5 +18,7 @@ export class CollisionAnimation {
     }
     update() {
         this.x -= this.game.speed;
+        this.frameX++;
+        if (this.frameX > this.maxFrame) this.markedForDeletion = true;
     }
 }
