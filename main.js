@@ -55,6 +55,11 @@ window.addEventListener('load', function () {
             if (this.particles.length > this.maxParticles) {
                 this.particles = this.particles.slice(0, this.maxParticles);
             }
+            // handle collision sprites
+            this.collisions.forEach((collision, index) => {
+                collision.update(deltaTime);
+                if (collision.markedForDeletion) this.collision.splice(index, 1);
+            });
         }
 
         draw(context) {
