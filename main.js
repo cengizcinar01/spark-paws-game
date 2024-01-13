@@ -58,7 +58,7 @@ window.addEventListener('load', function () {
             // handle collision sprites
             this.collisions.forEach((collision, index) => {
                 collision.update(deltaTime);
-                if (collision.markedForDeletion) this.collision.splice(index, 1);
+                if (collision.markedForDeletion) this.collisions.splice(index, 1);
             });
         }
 
@@ -70,6 +70,9 @@ window.addEventListener('load', function () {
             });
             this.particles.forEach((particle) => {
                 particle.draw(context);
+            });
+            this.collisions.forEach((collision) => {
+                collision.draw(context);
             });
             this.UI.draw(context);
         }
