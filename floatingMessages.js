@@ -9,8 +9,8 @@ export class FLoatingMessages {
         this.timer = 0;
     }
     update() {
-        this.x += this.targetX - this.x;
-        this.y += this.targetY - this.y;
+        this.x += this.targetX - this.x * 0.03;
+        this.y += this.targetY - this.y * 0.03;
         this.timer++;
         if (this.timer > 100) this.markedForDeletion = true;
     }
