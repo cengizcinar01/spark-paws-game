@@ -54,6 +54,10 @@ window.addEventListener('load', function () {
                 enemy.update(deltaTime);
                 if (enemy.markedForDeletion) this.enemies.splice(this.enemies.indexOf(enemy), 1);
             });
+            // handle messages
+            this.floatingMessages.forEach((message) => {
+                message.update();
+            });
             // handle particles
             this.particles.forEach((particle, index) => {
                 particle.update();
@@ -80,6 +84,9 @@ window.addEventListener('load', function () {
             });
             this.collisions.forEach((collision) => {
                 collision.draw(context);
+            });
+            this.floatingMessages.forEach((message) => {
+                message.draw(context);
             });
             this.UI.draw(context);
         }
