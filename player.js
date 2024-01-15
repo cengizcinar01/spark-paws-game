@@ -75,7 +75,7 @@ export class Player {
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
                 if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
                     this.game.score++;
-                    this.game.FLoatingMessages.push(new FLoatingMessages('+1', enemy.x, enemy.y, 0, 0));
+                    this.game.floatingMessages.push(new FLoatingMessages('+1', enemy.x, enemy.y, 0, 0));
                 } else {
                     this.setState(6, 0);
                     this.game.lives--;
