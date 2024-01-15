@@ -8,4 +8,12 @@ export class FLoatingMessages {
         this.markedForDeletion = false;
         this.timer = 0;
     }
+    update() {
+        this.x += this.targetX - this.x;
+        this.y += this.targetY - this.y;
+        this.timer++;
+        if (this.timer > 100) this.markedForDeletion = true;
+    }
+
+    draw() {}
 }
