@@ -71,6 +71,7 @@ window.addEventListener('load', function () {
                 collision.update(deltaTime);
                 if (collision.markedForDeletion) this.collisions.splice(index, 1);
             });
+            this.floatingMessages = this.floatingMessages.filter((message) => !message.markedForDeletion);
         }
 
         draw(context) {
