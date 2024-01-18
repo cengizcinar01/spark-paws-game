@@ -1,3 +1,5 @@
+![Spark Paws Game](https://repository-images.githubusercontent.com/738712629/ecc905e0-9929-4470-a8a2-552626391c7d)
+
 # Spark Paws Game
 
 In Spark Paws Game, you play as a black dog with a special ability to roll and leave behind a trail of flames. Your goal is to defeat enemies by utilizing your unique flame-trail ability, and collect as many score points as possible.
