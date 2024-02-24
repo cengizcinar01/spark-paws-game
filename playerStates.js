@@ -20,17 +20,20 @@ class State {
 export class Sitting extends State {
     constructor(game) {
         super('SITTING', game);
+        this.initPlayerFrame();
     }
-    enter() {
-        this.game.player.frameX = 0;
-        this.game.player.maxFrame = 4;
-        this.game.player.frameY = 5;
+    initPlayerFrame() {
+        const { player } = this.game;
+        player.frameX = 0;
+        player.maxFrame = 4;
+        player.frameY = 5;
     }
     handleInput(input) {
+        const { player } = this.game;
         if (input.includes('ArrowLeft') || input.includes('ArrowRight')) {
-            this.game.player.setState(states.RUNNING, 1);
+            player.setState(states.RUNNING, 1);
         } else if (input.includes('Enter')) {
-            this.game.player.setState(states.ROLLING, 2);
+            player.setState(states.ROLLING, 2);
         }
     }
 }
