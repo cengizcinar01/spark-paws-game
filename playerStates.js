@@ -20,20 +20,17 @@ class State {
 export class Sitting extends State {
     constructor(game) {
         super('SITTING', game);
-        this.initPlayerFrame();
     }
-    initPlayerFrame() {
-        const { player } = this.game;
-        player.frameX = 0;
-        player.maxFrame = 4;
-        player.frameY = 5;
+    enter() {
+        this.game.player.frameX = 0;
+        this.game.player.maxFrame = 4;
+        this.game.player.frameY = 5;
     }
     handleInput(input) {
-        const { player } = this.game;
         if (input.includes('ArrowLeft') || input.includes('ArrowRight')) {
-            player.setState(states.RUNNING, 1);
+            this.game.player.setState(states.RUNNING, 1);
         } else if (input.includes('Enter')) {
-            player.setState(states.ROLLING, 2);
+            this.game.player.setState(states.ROLLING, 2);
         }
     }
 }
@@ -41,27 +38,20 @@ export class Sitting extends State {
 export class Running extends State {
     constructor(game) {
         super('RUNNING', game);
-        this.initPlayerFrame();
     }
-    initPlayerFrame() {
-        const { player } = this.game;
-        player.frameX = 0;
-        player.maxFrame = 8;
-        player.frameY = 3;
+    enter() {
+        this.game.player.frameX = 0;
+        this.game.player.maxFrame = 8;
+        this.game.player.frameY = 3;
     }
     handleInput(input) {
-        const { player, particles } = this.game;
-        particles.push(new Dust(game, player.x + player.width * 0.6, player.y + player.height));
-        switch (true) {
-            case input.includes('ArrowDown'):
-                player.setState(states.SITTING, 0);
-                break;
-            case input.includes('ArrowUp'):
-                player.setState(states.JUMPING, 1);
-                break;
-            case input.includes('Enter'):
-                player.setState(states.ROLLING, 2);
-                break;
+        this.game.particles.push(new Dust(this.game, this.game.player.x + this.game.player.width * 0.6, this.game.player.y + this.game.player.height));
+        if (input.includes('ArrowDown')) {
+            this.game.player.setState(states.SITTING, 0);
+        } else if (input.includes('ArrowUp')) {
+            this.game.player.setState(states.JUMPING, 1);
+        } else if (input.includes('Enter')) {
+            this.game.player.setState(states.ROLLING, 2);
         }
     }
 }
